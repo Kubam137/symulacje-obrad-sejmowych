@@ -35,7 +35,7 @@ def login_marszalka():
         if haslo == "marszalek123":
             session["marszalek"] = True
             return redirect(url_for("panel_marszalka"))
-    return render_template("login_marszalka.html")
+    return render_template("marszalek_login.html")
 
 
 
