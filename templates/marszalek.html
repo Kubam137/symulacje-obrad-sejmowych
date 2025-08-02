@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Panel Marszałka</title>
+</head>
+<body>
+    <h1>Panel Marszałka</h1>
+    <p>Witaj, Marszałku!</p>
+
+    <form method="post">
+        <h2>Wybierz blok:</h2>
+        <select name="blok_index">
+            {% for i in range(bloki|length) %}
+                <option value="{{ i }}">Blok {{ i + 1 }}</option>
+            {% endfor %}
+        </select>
+        <br><br>
+        <input type="submit" value="Pokaż ustawy">
+    </form>
+
+    {% if wybrane_ustawy %}
+        <form method="post" action="/zatwierdz">
+            <h2>Ustawy w bloku:</h2>
+            {% for ustawa in wybrane_ustawy %}
+                <label>
+                    <input type="checkbox" name="przyjete" value="{{ ustawa['tytul'] }}">
+                    {{ ustawa['tytul'] }}
+                </label><br>
+            {% endfor %}
+            <br>
+            <input type="hidden" name="blok_index" value="{{ blok_index }}">
+            <input type="submit" value="Zatwierdź głosowanie">
+        </form>
+    {% endif %}
+</body>
+</html>

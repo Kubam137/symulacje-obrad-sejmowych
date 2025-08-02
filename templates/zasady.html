@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zasady rozgrywki</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Poppins', sans-serif;
+            background-color: #1c2541;
+            color: #f5f1e3;
+            line-height: 1.6;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 24px;
+            color: #f5f1e3;
+            margin-top: 30px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #c7c3b770;
+            padding-bottom: 6px;
+        }
+
+        h3 {
+            font-size: 20px;
+            margin-top: 20px;
+            color: #f5f1e3;
+        }
+
+        p {
+            margin-bottom: 12px;
+            font-size: 17px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        li {
+            margin-bottom: 8px;
+            font-size: 17px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 24px;
+            color: #c7c3b7;
+            text-decoration: none;
+            opacity: 0.7;
+        }
+
+        a:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            h3 {
+                font-size: 18px;
+            }
+
+            p, li {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Zasady rozgrywki</h1>
+
+    <h2>Cel gry</h2>
+    <p>
+        Waszym celem jako partii politycznej jest zdobycie jak największej liczby punktów poprzez przyjmowanie ustaw zgodnych z waszym programem.
+    </p>
+
+    <h2>Przebieg rundy</h2>
+    <p>Każda runda (blok tematyczny) składa się z 5 ustaw. Dla każdej ustawy obowiązuje ten sam schemat działania:</p>
+
+    <h3>Zapoznanie się z ustawami</h3>
+    <p>
+        Na początku rundy macie czas, aby zapoznać się z ustawami oraz z priorytetami waszej partii
+        (czyli oceną wpływu danej ustawy na wasz program).
+    </p>
+
+    <h3>Wystąpienia partyjne</h3>
+    <p>
+        Przy każdej ustawie jedna osoba z każdej partii przedstawia jej stanowisko na forum w krótkim wystąpieniu.
+    </p>
+
+    <h3>Negocjacje i rozmowy kuluarowe</h3>
+    <p>
+        Po wystąpieniach następuje czas na rozmowy z innymi partiami, w których możecie próbować zdobyć poparcie lub przekonywać do wspólnego głosowania.
+    </p>
+
+    <h3>Głosowanie</h3>
+    <p>
+        Każdy członek partii głosuje indywidualnie („za” lub „przeciw”), ale głosy sumują się na konto partii.
+    </p>
+    <p>
+        Jeśli ustawa zostanie przyjęta większością, partie zdobywają lub tracą punkty zgodnie ze swoim priorytetem dla tej ustawy.
+    </p>
+    <p>
+        Odrzucone ustawy nie mają wpływu na punktację.
+    </p>
+
+    <h3>Wyniki</h3>
+    <p>
+        Po zakończeniu głosowania, w zakładce Wyniki możecie zobaczyć punktację swojej partii po danym bloku.
+    </p>
+
+    <h2>Dodatkowe informacje</h2>
+    <ul>
+        <li>Gra składa się z 3 rund tematycznych (łącznie 15 ustaw).</li>
+        <li>Każda partia ma własne priorytety – czyli oceny ustaw od +10 (najbardziej zgodna) do –10 (całkowicie sprzeczna).</li>
+        <li>System zlicza punkty automatycznie po każdej rundzie.</li>
+        <li>Na końcu gry wygrywa partia z najwyższą łączną punktacją.</li>
+    </ul>
+
+    <a href="{{ url_for('partia_dashboard') }}">Powrót do panelu</a>
+
+</body>
+</html>

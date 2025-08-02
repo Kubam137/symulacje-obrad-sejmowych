@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ dane["nazwa"] }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Lato', sans-serif;
+            background-color: #1c2541;
+            color: #f5f1e3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .top-logo {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        .top-logo img {
+            height: 140px;
+            width: auto;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .top-logo img:hover {
+            transform: scale(1.05);
+        }
+
+        .subtitle {
+            font-size: 14px;
+            color: #c7c3b7;
+            margin-top: 5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            margin-top: 8px;
+        }
+
+        em {
+            font-family: 'Merriweather', serif;
+            font-size: 20px;
+            color: #c7c3b7;
+            margin-bottom: 40px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                "priorytety wyniki"
+                "ustawy zasady";
+            gap: 20px;
+            width: 100%;
+            max-width: 600px;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        .card {
+            background-color: #f5f1e3;
+            color: #1c2541;
+            padding: 8px 12px;         /* mniejszy padding – ale wciąż przyjemny */
+            min-height: 48px;
+            border-radius: 10px;
+            font-size: 20px;           /* trochę mniejszy font */
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: scale(1.03);
+        }
+
+        .priorytety { grid-area: priorytety; }
+        .wyniki { grid-area: wyniki; }
+        .ustawy { grid-area: ustawy; }
+        .zasady { grid-area: zasady; }
+
+        .logout {
+            margin-top: 40px;
+            font-size: 24px;
+            color: #c7c3b7;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .logout:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 500px) {
+            .grid {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "priorytety"
+                    "wyniki"
+                    "ustawy"
+                    "zasady";
+            }
+
+            .top-logo img {
+                height: 100px;
+            }
+
+            .card {
+                font-size: 18px;
+                padding: 20px;
+            }
+
+            .card i {
+                font-size: 22px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            em {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .card {
+                font-size: 16px;
+                padding: 16px;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .separator {
+            width: 40px;
+            height: 2px;
+            background-color: #f5f1e3;
+            margin: 10px auto 20px auto;
+            opacity: 0.5;
+            border-radius: 2px;
+        }
+
+        .icon-label {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .card i {
+            font-size: 26px;
+            transition: transform 0.3s;
+        }
+
+        .card:hover i {
+            transform: scale(1.15);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Logo wydarzenia -->
+    <a href="/partia" class="top-logo">
+        <img src="{{ url_for('static', filename='logo.png') }}" alt="Symulacja Sejmowa">
+    </a>
+    <div class="subtitle">Symulacja Obrad Sejmowych 2025</div>
+    
+    <!-- Nazwa partii -->
+    <h1>
+        <i class="{{ dane['logo_class'] }}" style="margin-right: 10px;"></i> {{ dane["nazwa"] }}
+    </h1>
+    <em>{{ dane["claim"] }}</em>
+
+    <!-- Kafelki -->
+    <div class="grid">
+        <a href="/priorytety" class="card priorytety">
+            <span class="icon-label"><i class="ti ti-chart-bar"></i><span>Priorytety</span></span>
+        </a>
+        <a href="/wyniki" class="card wyniki">
+            <span class="icon-label"><i class="ti ti-bell"></i><span>Wyniki</span></span>
+        </a>
+        <a href="/ustawy" class="card ustawy">
+            <span class="icon-label"><i class="ti ti-file-text"></i><span>Ustawy</span></span>
+        </a>
+        <a href="/zasady" class="card zasady">
+            <span class="icon-label"><i class="ti ti-book"></i><span>Zasady</span></span>
+        </a>
+    </div>
+
+    <!-- Wylogowanie -->
+    <a href="/" class="logout">
+        <span class="icon-label"><i class="ti ti-lock"></i><span>Wyloguj</span></span>
+    </a>
+
+</body>
+</html>

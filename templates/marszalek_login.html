@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logowanie Marszałka</title>
+</head>
+<body>
+   <h2>Logowanie Marszałka</h2>
+{% if blad %}
+<p style="color:red;">{{ blad }}</p>
+{% endif %}
+<form method="POST">
+    <input type="password" name="haslo" placeholder="Hasło">
+    <input type="submit" value="Zaloguj">
+</form>
+
+</body>
+</html>

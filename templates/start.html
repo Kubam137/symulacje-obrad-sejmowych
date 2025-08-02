@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Start</title>
+</head>
+<body>
+    <h1>🏛️ Aktualna ustawa:</h1>
+    <h2>{{ ustawa["tytul"] }}</h2>
+    <p>{{ ustawa["opis"] }}</p>
+    <p><strong>Ocena tej ustawy przez Twoją partię:</strong> {{ ocena }}</p>
+    <p><a href="/?haslo={{ haslo }}">⬅ Wróć do menu</a></p>
+    <a href="{{ url_for('partia') }}">⬅️ Powrót do strony głównej</a>
+
+
+</body>
+</html>
